@@ -5,6 +5,7 @@
     width: 100vw;
     overflow: hidden;
     transition: top 350ms ease-in-out;
+    color: #FFFFFF;
 }
 
 .blanket--raised {
@@ -17,7 +18,6 @@
 }
 
 .blanket__floating-title {
-    color: #FFFFFF;
     height: 50vh;
     width: 100%;
     opacity: 0;

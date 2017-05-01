@@ -1,22 +1,44 @@
+
 export const CATEGORIES = {
-    FRIENDLY: {
-        key: 'friendly',
+    FRIENDLY: 'FRIENDLY',
+    HUNGRY: 'HUNGRY',
+    TIRED: 'TIRED',
+    GRUMPY: 'GRUMPY',
+    HOMESICK: 'HOMESICK',
+}
+
+
+export const CATEGORY_INFO = {
+    [CATEGORIES.FRIENDLY]: {
         name: 'Friendly bear',
     },
-    HUNGRY: {
-        key: 'hungry',
+    [CATEGORIES.HUNGRY]: {
         name: 'Hungry bear',
     },
-    TIRED: {
-        key: 'tired',
+    [CATEGORIES.TIRED]: {
         name: 'Tired bear',
     },
-    GRUMPY: {
-        key: 'grumpy',
+    [CATEGORIES.GRUMPY]: {
         name: 'Grumpy bear',
     },
-    HOMESICK: {
-        key: 'homesick',
+    [CATEGORIES.HOMESICK]: {
         name: 'Homesick bear',
     },
+}
+
+const FRIENDLY_TERMS = [
+    {
+        term: '你好',
+        pronunciation: 'nǐ hǎo',
+        meaning: 'Hello',
+        audio: null,
+    }
+];
+
+export const TERMS = {
+    [CATEGORIES.FRIENDLY]: FRIENDLY_TERMS,
+    [CATEGORIES.HUNGRY]: [],
+    [CATEGORIES.TIRED]: [],
+    [CATEGORIES.GRUMPY]: [],
+    [CATEGORIES.HOMESICK]: [],
 }

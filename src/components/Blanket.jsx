@@ -7,7 +7,6 @@ import PageContent from './PageContent';
 
 import '../../assets/css/blanket.css';
 import downArrow from '../../assets/images/down.svg';
-import {CATEGORIES} from '../constants';
 import * as LaunchActions from '../actions/launchActions';
 import * as PageActions from '../actions/pageActions';
 
@@ -27,7 +26,7 @@ const Blanket = (props) => {
             {props.currentPage && props.currentPage.name}
         </div>
         <div className="blanket__content">
-            <PageContent cards={Object.values(CATEGORIES)}/>
+            <PageContent/>
         </div>
         <div className="blanket__start-container">
             <img className="blanket__start-arrow" src={downArrow}
@@ -36,17 +35,13 @@ const Blanket = (props) => {
     </div>);
 }
 
-const mapStateToProps = state => ({
-    launched: state.launch.launched,
-    currentPage: null, // getCurrentPage(state),
-});
-
-const mapDispatchToProps = dispatch => ({
-    launchActions: bindActionCreators(LaunchActions, dispatch),
-    pageActions: bindActionCreators(PageActions, dispatch),
-});
-
 export default connect(
-    mapStateToProps,
-    mapDispatchToProps
+    state => ({
+        launched: state.launch.launched,
+        currentPage: null, // getCurrentPage(state),
+    }),
+    dispatch => ({
+        launchActions: bindActionCreators(LaunchActions, dispatch),
+        pageActions: bindActionCreators(PageActions, dispatch),
+    }),
 )(Blanket);

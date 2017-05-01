@@ -14,3 +14,37 @@
     cursor: pointer;
 }
 
+.term-card {
+    background: rgba(255, 114, 99, 0.5);
+    padding: 1em 3em;
+    border-bottom: 1px solid rgba(255, 114, 99, 0.8);
+    display: flex;
+}
+
+.term-card__audio {
+    width: 1.5em;
+    height: 1.5em;
+    background-image: url('../images/speaker_icon.svg');
+    background-size: contain;
+}
+
+.term-card__audio:hover {
+    cursor: pointer;
+}
+
+.term-card__info {
+    flex-grow: 1;
+    text-align: left;
+    padding: 0 1em;
+}
+
+.term-card__meaning {
+    display: block;
+    font-weight: 600;
+}
+
+.term-card__pronunciation {
+    display: block;
+    font-weight: 300;
+    font-style: italic;
+}
