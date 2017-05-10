@@ -1,11 +1,14 @@
+import classNames from 'classnames';
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import * as PageActions from '../actions/pageActions';
-import { CATEGORY_INFO, TERMS } from '../constants';
+import { CATEGORY_INFO, PHRASES } from '../constants';
 
-import '../../assets/css/pageContent.css';
+import '../assets/css/pageContent.css';
+
+import * as audioFiles from '../assets/audio';
 
 const CategoryCard = (props) => {
     return (
@@ -16,39 +19,63 @@ const CategoryCard = (props) => {
     );
 };
 
-const TermCard = (props) => {
+const PhraseCard = (props) => {
+    const audioClasses = classNames('phrase-card__audio', {
+        'phrase-card__audio--disabled': !props.audio,
+    }); 
+
     return (
-        <div className="term-card" onClick={props.onClick}>
-            <div className="term-card__audio">
-            </div>
-            <div className="term-card__info">
-                <span className="term-card__meaning">{props.meaning}</span>
-                <span className="term-card__pronunciation">{props.pronunciation}</span>
+        <div className="phrase-card" onClick={props.onClick}>
+            <div className={audioClasses} title={props.audio ? 'Play audio' : 'No audio available'}
+                    onClick={evt => props.playAudio(props.audio)}/>
+            <div className="phrase-card__info">
+                <span className="phrase-card__pronunciation">{props.pronunciation}</span>
+                <span className="phrase-card__meaning">{props.meaning}</span>
             </div>
         </div>
     );
 };
 
-const PageContent = (props) => {
-    const cards = props.cards.map((card) => {
-        if (props.category) {
-            return <TermCard key={card.term} {...card}
-                    onClick={() => {props.pageActions.selectTerm(card.term)}}/>;
-        }
-        const [categoryKey, cardInfo] = card;
-        return <CategoryCard key={categoryKey} {...{...cardInfo, categoryKey}}
-                onClick={(evt) => {props.pageActions.selectCategory(categoryKey)}}/>;
-    });
+class PageContent extends React.Component {
+    constructor(props){
+        super(props);
+        // this.state = {
+        //     audio: null,
+        // };
 
-    return (
-        <div className="page-content">
-            {cards}
-        </div>);
+        this.audio = new Audio();
+    }
+
+    render(){
+         const cards = this.props.cards.map((card) => {
+            if (this.props.category) {
+                return (
+                    <PhraseCard key={card.phrase} {...card}
+                            onClick={() => {this.props.pageActions.selectPhrase(card.phrase)}}
+                            playAudio={(file) => this.playAudio(file)} />
+                );
+            }
+            const [categoryKey, cardInfo] = card;
+            return <CategoryCard key={categoryKey} {...{...cardInfo, categoryKey}}
+                    onClick={(evt) => {this.props.pageActions.selectCategory(categoryKey)}}/>;
+        });
+
+        return (
+            <div className="page-content">
+                {cards}
+            </div>);
+    }
+
+    playAudio(file){
+        // this.setState({audio: file});
+        this.audio.src = audioFiles.imverywellandyou;
+        this.audio.play();
+    }
 }
 
 const getCards = (category, launched) => {
     if (category){
-        return TERMS[category];
+        return PHRASES[category];
     }
 
     return Object.entries(CATEGORY_INFO);
@@ -56,7 +83,7 @@ const getCards = (category, launched) => {
 
 const mapStateToProps = state => ({
     category: state.page.category,
-    term: state.page.term,
+    phrase: state.page.phrase,
     cards: state.launch.launched ? getCards(state.page.category) : [],
     currentPage: null, // getCurrentPage(state),
 });

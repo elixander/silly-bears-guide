@@ -1,3 +1,7 @@
+import {
+    FRIENDLY_PHRASES, 
+    HUNGRY_PHRASES,
+} from './phrases';
 
 export const CATEGORIES = {
     FRIENDLY: 'FRIENDLY',
@@ -6,7 +10,6 @@ export const CATEGORIES = {
     GRUMPY: 'GRUMPY',
     HOMESICK: 'HOMESICK',
 }
-
 
 export const CATEGORY_INFO = {
     [CATEGORIES.FRIENDLY]: {
@@ -26,18 +29,9 @@ export const CATEGORY_INFO = {
     },
 }
 
-const FRIENDLY_TERMS = [
-    {
-        term: '你好',
-        pronunciation: 'nǐ hǎo',
-        meaning: 'Hello',
-        audio: null,
-    }
-];
-
-export const TERMS = {
-    [CATEGORIES.FRIENDLY]: FRIENDLY_TERMS,
-    [CATEGORIES.HUNGRY]: [],
+export const PHRASES = {
+    [CATEGORIES.FRIENDLY]: FRIENDLY_PHRASES,
+    [CATEGORIES.HUNGRY]: HUNGRY_PHRASES,
     [CATEGORIES.TIRED]: [],
     [CATEGORIES.GRUMPY]: [],
     [CATEGORIES.HOMESICK]: [],

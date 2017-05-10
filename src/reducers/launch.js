@@ -7,7 +7,6 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
     switch (action.type){
         case types.LAUNCH:
-            console.log('hello');
             return {launched: true};
         default:
             return state;

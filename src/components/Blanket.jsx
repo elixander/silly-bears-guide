@@ -4,11 +4,24 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import PageContent from './PageContent';
+import TopBar from './TopBar';
 
-import '../../assets/css/blanket.css';
-import downArrow from '../../assets/images/down.svg';
+import '../assets/css/blanket.css';
+import downArrow from '../assets/images/down.svg';
 import * as LaunchActions from '../actions/launchActions';
 import * as PageActions from '../actions/pageActions';
+import { CATEGORY_INFO } from '../constants';
+
+// TODO: This could probably be a selector for better organization?
+const getCurrentPageName = (state) => {
+    if (state.page.category){
+        return `${CATEGORY_INFO[state.page.category].name}'s guide`;
+    } else if (state.launch.launched){ 
+        return 'Chinese for...';
+    }
+
+    return null;
+}
 
 const Blanket = (props) => {
     const blanketClasses = classNames("blanket", {
@@ -22,11 +35,11 @@ const Blanket = (props) => {
         <div className={titleClasses}>
             <h1 className="blanket__title-text">Silly Bear's Essential Guide to Chinese</h1>
         </div>
-        <div className="blanket__top-bar">
-            {props.currentPage && props.currentPage.name}
-        </div>
-        <div className="blanket__content">
-            <PageContent/>
+        <div className="blanket__view-wrapper">
+            <TopBar />
+            <div className="blanket__content">
+                <PageContent />
+            </div>
         </div>
         <div className="blanket__start-container">
             <img className="blanket__start-arrow" src={downArrow}
@@ -38,7 +51,8 @@ const Blanket = (props) => {
 export default connect(
     state => ({
         launched: state.launch.launched,
-        currentPage: null, // getCurrentPage(state),
+        category: state.page.category,
+        currentPageName: getCurrentPageName(state),
     }),
     dispatch => ({
         launchActions: bindActionCreators(LaunchActions, dispatch),

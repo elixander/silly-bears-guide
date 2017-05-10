@@ -1,4 +1,5 @@
 export const LAUNCH = 'LAUNCH';
 
 export const SELECT_CATEGORY = 'SELECT_CATEGORY';
-export const SELECT_TERM = 'SELECT_TERM';
+export const CLEAR_CATEGORY = 'CLEAR_CATEGORY';
+export const SELECT_PHRASE = 'SELECT_PHRASE';
