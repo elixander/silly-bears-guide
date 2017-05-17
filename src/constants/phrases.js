@@ -13,7 +13,7 @@ export const FRIENDLY_PHRASES = [
         phrase: '我很好，你呢？',
         pronunciation: 'wǒ hěn hǎo, nǐ nē',
         meaning: 'I\'m very well. And you?',
-        audio: 'imverywellandyou.m4a',
+        audio: 'imverywellandyou',
     }, {
         phrase: '再見',
         pronunciation: 'zài jiàn',
@@ -30,7 +30,6 @@ export const FRIENDLY_PHRASES = [
         meaning: 'You\'re welcome. lit: no politeness (necessary)',
         audio: null,
     },
-
 ];
 
 export const HUNGRY_PHRASES = [

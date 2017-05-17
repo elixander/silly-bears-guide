@@ -22,25 +22,6 @@
     align-items: center;
 }
 
-.phrase-card__audio {
-    width: 1.5em;
-    height: 1.5em;
-    background-image: url('../images/speaker_icon.svg');
-    background-size: contain;
-}
-
-.phrase-card__audio--disabled {
-    opacity: 0.5;
-}
-
-.phrase-card__audio:hover {
-    cursor: pointer;
-}
-
-.phrase-card__audio--disabled:hover {
-    cursor: not-allowed;
-}
-
 .phrase-card__info {
     flex-grow: 1;
     text-align: left;
@@ -58,3 +39,83 @@
     font-style: italic;
     color: rgba(240, 240, 250, 0.8);
 }
+
+/* ------------ Audio -------------- */
+
+.audio {
+    width: 1.5em;
+    height: 1.5em;
+    background: no-repeat center/contain url('../images/speaker_icon.svg');
+}
+
+.audio--disabled {
+    opacity: 0.5;
+}
+
+.audio:hover {
+    cursor: pointer;
+}
+
+.audio--disabled:hover {
+    cursor: not-allowed;
+}
+
+/* ------------ Expanded Views -------------- */
+
+.expanded-view {
+    width: 0%;
+    height: 0%;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    z-index: 20;
+    background-color: rgb(200, 75, 75);
+    overflow: hidden;
+    transition: width 150ms ease-in-out, height 150ms ease-in-out, top 150ms ease-in-out, left 150ms ease-in-out;
+}
+
+.expanded-view--open {
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 0px;
+    transition: width 150ms ease-in-out, height 150ms ease-in-out, top 150ms ease-in-out, left 150ms ease-in-out;
+}
+
+.expanded-view__top-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.expanded-view__close-button {
+    margin: 2em 2em 0 0;
+    width: 2em;
+    height: 2em;
+    cursor: pointer;
+    right: 0;
+    background: url('../images/close_button.svg') no-repeat;
+    border: none;
+}
+
+/* ------------ Phrase Page -------------- */
+
+.phrase-page {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80%;
+}
+
+.phrase-page__main-phrase {
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    background-color: rgba(100, 200, 100, 0.5);
+}
+
+.phrase-page__phrase {
+    /*flex-grow: 0;*/
+}
+
+

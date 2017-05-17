@@ -12,5 +12,15 @@ export const selectPhrase = payload => ({
 
 export const clearCategory = () => ({
 	type: types.CLEAR_CATEGORY,
-	paylod: null,
+	payload: null,
+});
+
+export const openExpandedView = (type) => ({
+	type: types.OPEN_EXPANDED_VIEW,
+	payload: type,
+});
+
+export const closeExpandedView = () => ({
+	type: types.CLOSE_EXPANDED_VIEW, 
+	payload: null,
 });

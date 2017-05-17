@@ -4,10 +4,13 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 
 import * as PageActions from '../actions/pageActions';
-import { CATEGORY_INFO, PHRASES } from '../constants';
+import { CATEGORIES, CATEGORY_INFO, PHRASES } from '../constants';
+import * as viewTypes from '../constants/viewTypes';
+import CatHouse from './CatHouse';
+import ExpandedView from './ExpandedView';
+import PhrasePage from './PhrasePage';
 
 import '../assets/css/pageContent.css';
-
 import * as audioFiles from '../assets/audio';
 
 const CategoryCard = (props) => {
@@ -20,19 +23,24 @@ const CategoryCard = (props) => {
 };
 
 const PhraseCard = (props) => {
-    const audioClasses = classNames('phrase-card__audio', {
-        'phrase-card__audio--disabled': !props.audio,
+    const audioClasses = classNames('audio', {
+        'audio--disabled': !props.audio,
     }); 
 
     return (
         <div className="phrase-card" onClick={props.onClick}>
             <div className={audioClasses} title={props.audio ? 'Play audio' : 'No audio available'}
-                    onClick={evt => props.playAudio(props.audio)}/>
+                    onClick={evt => {
+                        if (!evt.target.classList.contains('audio--disabled')){
+                            props.playAudio(props.audio)
+                        }
+                    }}/>
             <div className="phrase-card__info">
                 <span className="phrase-card__pronunciation">{props.pronunciation}</span>
                 <span className="phrase-card__meaning">{props.meaning}</span>
             </div>
         </div>
+
     );
 };
 
@@ -47,11 +55,11 @@ class PageContent extends React.Component {
     }
 
     render(){
-         const cards = this.props.cards.map((card) => {
+         const cards = this.props.cards.map((card, i) => {
             if (this.props.category) {
                 return (
                     <PhraseCard key={card.phrase} {...card}
-                            onClick={() => {this.props.pageActions.selectPhrase(card.phrase)}}
+                            onClick={() => {this.props.pageActions.selectPhrase(i)}}
                             playAudio={(file) => this.playAudio(file)} />
                 );
             }
@@ -60,20 +68,45 @@ class PageContent extends React.Component {
                     onClick={(evt) => {this.props.pageActions.selectCategory(categoryKey)}}/>;
         });
 
+        const cat = this.props.category === CATEGORIES.HOMESICK ? (
+                <button className="peeking-cat" onClick={() => {
+                    this.props.pageActions.openExpandedView(viewTypes.CAT);
+                }}/>
+            ) : null;
+
+        // TODO: this logic should not live here...
+        let expandedView = null;
+        switch(this.props.expandedView){
+            case viewTypes.PHRASE:
+                const phraseInfo = PHRASES[this.props.category][this.props.phrase];
+                expandedView = <PhrasePage phraseInfo={phraseInfo} playAudio={(file) => this.playAudio(file)} />;
+                break;
+            case viewTypes.CAT:
+                expandedView = <CatHouse />
+                break; 
+            default:
+                break;
+        }
+
         return (
             <div className="page-content">
                 {cards}
+                {cat}
+                <ExpandedView open={!!this.props.expandedView} 
+                        onClose={this.props.pageActions.closeExpandedView}>
+                    {expandedView}
+                </ExpandedView>
             </div>);
     }
 
     playAudio(file){
         // this.setState({audio: file});
-        this.audio.src = audioFiles.imverywellandyou;
+        this.audio.src = audioFiles[file];
         this.audio.play();
     }
 }
 
-const getCards = (category, launched) => {
+const getCards = (category) => {
     if (category){
         return PHRASES[category];
     }
@@ -84,8 +117,8 @@ const getCards = (category, launched) => {
 const mapStateToProps = state => ({
     category: state.page.category,
     phrase: state.page.phrase,
+    expandedView: state.page.expandedView,
     cards: state.launch.launched ? getCards(state.page.category) : [],
-    currentPage: null, // getCurrentPage(state),
 });
 
 export default connect(
