@@ -34,6 +34,7 @@ const PhraseCard = (props) => {
                         if (!evt.target.classList.contains('audio--disabled')){
                             props.playAudio(props.audio)
                         }
+                        evt.stopPropagation();
                     }}/>
             <div className="phrase-card__info">
                 <span className="phrase-card__pronunciation">{props.pronunciation}</span>
