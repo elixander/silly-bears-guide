@@ -1,11 +1,19 @@
 {
-  "main.css": "static/css/main.de9f8181.css",
-  "main.css.map": "static/css/main.de9f8181.css.map",
-  "main.js": "static/js/main.9ab5357d.js",
-  "main.js.map": "static/js/main.9ab5357d.js.map",
+  "main.css": "static/css/main.c36a9c7e.css",
+  "main.css.map": "static/css/main.c36a9c7e.css.map",
+  "main.js": "static/js/main.677a194c.js",
+  "main.js.map": "static/js/main.677a194c.js.map",
+  "static/media/cat-mouth-closed.svg": "static/media/cat-mouth-closed.3b240ed1.svg",
+  "static/media/cat-mouth-half-open.svg": "static/media/cat-mouth-half-open.d7b01704.svg",
+  "static/media/cat-mouth-open.svg": "static/media/cat-mouth-open.14f28592.svg",
+  "static/media/cat-mouth-relaxed.svg": "static/media/cat-mouth-relaxed.5b93f1e1.svg",
+  "static/media/cat-silhouette.svg": "static/media/cat-silhouette.479557b9.svg",
   "static/media/close_button.svg": "static/media/close_button.828ad82b.svg",
   "static/media/down.svg": "static/media/down.d01c5913.svg",
   "static/media/imverywellandyou.m4a": "static/media/imverywellandyou.100f4646.m4a",
   "static/media/speaker_icon.svg": "static/media/speaker_icon.a2bceee5.svg",
+  "static/media/speech-bubble-center.svg": "static/media/speech-bubble-center.07cafde8.svg",
+  "static/media/speech-bubble-left.svg": "static/media/speech-bubble-left.762f141d.svg",
+  "static/media/speech-bubble-right.svg": "static/media/speech-bubble-right.2cae3c38.svg",
   "static/media/standingbear.jpg": "static/media/standingbear.7bb485e6.jpg"
 }
