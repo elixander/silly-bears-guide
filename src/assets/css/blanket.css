@@ -1,6 +1,5 @@
 .blanket {
-    position: absolute;
-    top: 0%;
+    position: relative;
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -10,7 +9,6 @@
 
 .blanket--raised {
     overflow: visible;
-    top: -50%;
 }
 
 .blanket--raised .blanket__start-arrow {
@@ -18,14 +16,17 @@
 }
 
 .blanket__floating-title {
-    height: 50vh;
+    position: relative;
+    height: 0vh;
     width: 100%;
     opacity: 0;
-    transition: opacity 150ms ease-in-out;
+    transition: opacity 150ms ease-in-out, height 350ms ease-in-out;
+    overflow: hidden;
 }
 
 .blanket__floating-title--visible {
     opacity: 1;
+    height: 50vh;
 }
 
 .blanket__title-text {

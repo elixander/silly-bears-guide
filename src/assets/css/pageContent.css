@@ -77,7 +77,7 @@
 .expanded-view--open {
     width: 100%;
     height: 100%;
-    top: 50%;
+    top: 0%;
     left: 0px;
     transition: width 150ms ease-in-out, height 150ms ease-in-out, top 150ms ease-in-out, left 150ms ease-in-out;
 }
@@ -115,7 +115,63 @@
 }
 
 .phrase-page__phrase {
-    /*flex-grow: 0;*/
+
 }
 
+/* ------------ Cat House -------------- */
+
+.peeking-cat {
+    width: 100%;
+    height: 10em;
+    border: none;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: no-repeat center 20px / contain url('../images/cat-silhouette.svg');
+}
+
+.cat-house {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cat-house__cat {
+    flex-grow: 1;
+    background: no-repeat center/contain url('../images/cat-mouth-closed.svg');
+}
+
+.cat-house__cat--speaking-1 {
+    background-image:  url('../images/cat-mouth-relaxed.svg');
+}
+
+.cat-house__cat--speaking-2 {
+    background-image:  url('../images/cat-mouth-half-open.svg');
+}
+
+.cat-house__cat--speaking-3 {
+    background-image:  url('../images/cat-mouth-open.svg');
+}
+
+.cat-house__speech-bubble {
+    width: 10em;
+    height: 5em;
+    visibility: hidden;
+}
+
+.cat-house__speech-bubble--visible {
+    visibility: visible;
+}
+
+.cat-house__speech-bubble--left {
+    background: no-repeat center/contain url('../images/speech-bubble-left.svg');
+}
+
+.cat-house__speech-bubble--center {
+    background: no-repeat center/contain url('../images/speech-bubble-center.svg');
+}
+
+.cat-house__speech-bubble--right {
+    background: no-repeat center/contain url('../images/speech-bubble-right.svg');
+}
 
