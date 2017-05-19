@@ -1,5 +1,4 @@
 .page-content {
-    
 }
 
 .category-card {
@@ -9,7 +8,7 @@
     border-bottom: 1px solid rgba(255, 114, 99, 0.8);
 }
 
-.category-card:hover {
+.category-card:hover, .phrase-card:hover {
     background: rgba(255, 114, 99, 0.6);
     cursor: pointer;
 }
@@ -46,6 +45,7 @@
     width: 1.5em;
     height: 1.5em;
     background: no-repeat center/contain url('../images/speaker_icon.svg');
+    flex-shrink: 0;
 }
 
 .audio--disabled {
@@ -63,23 +63,31 @@
 /* ------------ Expanded Views -------------- */
 
 .expanded-view {
-    width: 0%;
-    height: 0%;
+    width: 50%;
+    height: 50%;
     position: absolute;
-    top: 100%;
-    left: 50%;
+    top: 25%;
+    left: 25%;
     z-index: 20;
     background-color: rgb(200, 75, 75);
     overflow: hidden;
-    transition: width 150ms ease-in-out, height 150ms ease-in-out, top 150ms ease-in-out, left 150ms ease-in-out;
+    opacity: 0;
+    visibility: none;
+    pointer-events: none;
+    transition: width 150ms ease-in-out, height 150ms ease-in-out, top 150ms ease-in-out, left 150ms ease-in-out, 
+        opacity 150ms ease-in;
 }
 
 .expanded-view--open {
+    visibility: visible;
     width: 100%;
     height: 100%;
     top: 0%;
-    left: 0px;
-    transition: width 150ms ease-in-out, height 150ms ease-in-out, top 150ms ease-in-out, left 150ms ease-in-out;
+    left: 0%;
+    opacity: 1;
+    pointer-events: all;
+    transition: width 150ms ease-in-out, height 150ms ease-in-out, top 150ms ease-in-out, left 150ms ease-in-out, 
+        opacity 150ms ease-in;
 }
 
 .expanded-view__top-bar {
@@ -138,7 +146,7 @@
 
 .cat-house__cat {
     flex-grow: 1;
-    background: no-repeat center/contain url('../images/cat-mouth-closed.svg');
+    background: no-repeat top center/contain url('../images/cat-mouth-closed.svg');
 }
 
 .cat-house__cat--speaking-1 {
@@ -153,25 +161,69 @@
     background-image:  url('../images/cat-mouth-open.svg');
 }
 
-.cat-house__speech-bubble {
-    width: 10em;
+.cat-house__speech-container {
+    display: grid;
+    grid-template-columns: 5% 30% 30% 30% 5%;
+    align-items: end;
     height: 5em;
+    position: relative;
+}
+
+.cat-house__speech-bubble {
+    width: 100%;
+    height: 100%;
+    position: relative;
     visibility: hidden;
+    color: #231F20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
 }
 
 .cat-house__speech-bubble--visible {
     visibility: visible;
+    animation: bounce 150ms forwards ease-in-out;
 }
 
 .cat-house__speech-bubble--left {
     background: no-repeat center/contain url('../images/speech-bubble-left.svg');
+    grid-column: 2 / 3;
+    bottom: 0px;
+}
+
+.cat-house__speech-bubble--left .cat-house__speech-text {
+    transform: rotateZ(-20deg);
 }
 
 .cat-house__speech-bubble--center {
     background: no-repeat center/contain url('../images/speech-bubble-center.svg');
+    grid-column: 3 / 4;
 }
 
 .cat-house__speech-bubble--right {
     background: no-repeat center/contain url('../images/speech-bubble-right.svg');
+    grid-column: 4 / 5;
 }
 
+.cat-house__speech-bubble--right .cat-house__speech-text {
+    transform: rotateZ(20deg);
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(0.5);
+  }
+  40% {
+    transform: scale(0.7);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  80% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

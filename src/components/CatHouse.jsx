@@ -13,9 +13,13 @@ const BUBBLE_WORDS = [
 	'mrew?', 
 	'bap', 
 	'bip',
+	'beep!!',
+	'borp',
+	'BIPPO',
+	'mimo~',
 ];
 
-const BUBBLE_TIMEOUT_LENGTH = 2000;
+const BUBBLE_TIMEOUT_LENGTH = 500;
 
 const NUM_FRAMES = 3;
 const MAX_FRAME = NUM_FRAMES * 2 - 1;
@@ -50,7 +54,9 @@ class CatHouse extends React.Component {
 		return (
 			<div className="cat-house">
 				<div className="cat-house__speech-container">
-					<div className={bubbleClasses}>{this.state.speech}</div>
+					<div className={bubbleClasses}>
+						<span className="cat-house__speech-text">{this.state.speech}</span>
+					</div>
 				</div>
 				<div className={catClasses} onClick={() => {
 					this.beep(); 
