@@ -1,6 +1,16 @@
 import classNames from 'classnames';
 import React from 'react';
 
+const VocabTable = ({vocabInfo}) => {
+	if (!vocabInfo) return null;
+
+	return (
+		<div className="phrase-page__vocab-table">
+			<h3>Vocabulary</h3>
+		</div>
+	);
+}
+
 const PhrasePage = (props) => {
 	const phraseInfo = props.phraseInfo;
 	const audioClasses = classNames('audio', {
@@ -18,11 +28,10 @@ const PhrasePage = (props) => {
                     }}/>
 				<span className="phrase-page__phrase">{phraseInfo.phrase}</span>
 			</div>
-			<div>
-				<span className="phrase-page__pronunciation">{phraseInfo.pronunciation}</span>
-				<span className="phrase-page__meaning">{phraseInfo.meaning}</span>
-				
-			</div>
+			<div className="phrase-page__pronunciation">{phraseInfo.pronunciation}</div>
+			<div className="phrase-page__meaning">{phraseInfo.meaning}</div>
+			<div className="phrase-page__extra-info"></div>
+			<VocabTable vocabInfo={phraseInfo.vocab} />
 		</div>
 	);
 };

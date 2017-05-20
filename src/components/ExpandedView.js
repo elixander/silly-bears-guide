@@ -4,6 +4,7 @@ import React from 'react';
 const ExpandedView = (props) => {
 	const classes = classNames('expanded-view', {
 		'expanded-view--open': props.open,
+		[`expanded-view--${props.type}`]: true,
 	})
 
 	return (

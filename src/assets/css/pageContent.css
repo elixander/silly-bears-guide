@@ -3,20 +3,20 @@
 
 .category-card {
     width: 100%;
-    background: rgba(255, 114, 99, 0.5);
+    background: rgba(43, 110, 136, 0.5);
     padding: 1em 0;
-    border-bottom: 1px solid rgba(255, 114, 99, 0.8);
+    border-bottom: 1px solid rgba(43, 110, 136, 0.5);
 }
 
 .category-card:hover, .phrase-card:hover {
-    background: rgba(255, 114, 99, 0.6);
+    background: rgba(43, 110, 136, 0.6);
     cursor: pointer;
 }
 
 .phrase-card {
-    background: rgba(255, 114, 99, 0.5);
+    background: rgba(43, 110, 136, 0.5);
     padding: 1em 1.5em;
-    border-bottom: 1px solid rgba(255, 114, 99, 0.8);
+    border-bottom: 1px solid rgba(43, 110, 136, 0.8);
     display: flex;
     align-items: center;
 }
@@ -69,7 +69,7 @@
     top: 25%;
     left: 25%;
     z-index: 20;
-    background-color: rgb(200, 75, 75);
+    background-color: rgb(157, 199, 204);
     overflow: hidden;
     opacity: 0;
     visibility: none;
@@ -119,11 +119,18 @@
     padding: 10px;
     display: grid;
     grid-template-columns: 40px 1fr;
-    background-color: rgba(100, 200, 100, 0.5);
+    margin-bottom: 1em;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 3px;
 }
 
-.phrase-page__phrase {
+.phrase-page__pronunciation {
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 8px;
+}
 
+.phrase-page__meaning {
+    
 }
 
 /* ------------ Cat House -------------- */
@@ -172,6 +179,7 @@
 }
 
 .cat-house__speech-bubble {
+    font-family: 'Open Sans', sans-serif;
     width: 100%;
     height: 100%;
     position: relative;

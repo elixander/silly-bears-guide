@@ -48,8 +48,11 @@ const Blanket = (props) => {
             </div>
         </div>
         <div className="blanket__start-container">
-            <img className="blanket__start-arrow" src={downArrow}
-                    onClick={() => props.launchActions.launch()} alt="Start"/>
+            <span className="blanket__start" onClick={() => props.launchActions.launch()}> 
+                Go!
+                <img className="blanket__start-arrow" src={downArrow}
+                        onClick={() => props.launchActions.launch()} alt="Start"/>
+            </span>
         </div>
     </div>);
 }

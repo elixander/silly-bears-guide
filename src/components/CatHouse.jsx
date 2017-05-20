@@ -53,6 +53,7 @@ class CatHouse extends React.Component {
 
 		return (
 			<div className="cat-house">
+				<div className="cat-house__found-text">You've found a cat!</div>
 				<div className="cat-house__speech-container">
 					<div className={bubbleClasses}>
 						<span className="cat-house__speech-text">{this.state.speech}</span>
