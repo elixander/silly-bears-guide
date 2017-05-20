@@ -33,7 +33,13 @@ const Blanket = (props) => {
 
     return (<div className={blanketClasses}>
         <div className={titleClasses}>
-            <h1 className="blanket__title-text">Silly Bear's Essential Guide to Chinese</h1>
+            <h1 className="blanket__title-text">
+                <span className="blanket__title-text--top">Silly Bear's</span><br />
+                <span className="blanket__title-text--bottom">
+                    <span className="small-caps smaller-text">Essential Guide </span>
+                    <span className="smaller-text">to</span> <span className="small-caps">Chinese</span>
+                </span>
+            </h1>
         </div>
         <div className="blanket__view-wrapper">
             <TopBar />

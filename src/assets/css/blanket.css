@@ -3,7 +3,6 @@
     height: 100%;
     width: 100%;
     overflow: hidden;
-    transition: top 350ms ease-in-out;
     color: #FFFFFF;
 }
 
@@ -20,8 +19,16 @@
     height: 0vh;
     width: 100%;
     opacity: 0;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(120, 100, 56, 0.8), rgba(120, 100, 56, 0.1)
+    );
     transition: opacity 150ms ease-in-out, height 350ms ease-in-out;
     overflow: hidden;
+}
+
+.blanket:not(.blanket-raised) .blanket__floating-title--visible:hover{
+    height: 35vh;
 }
 
 .blanket__floating-title--visible {
@@ -30,17 +37,35 @@
 }
 
 .blanket__title-text {
-    font-size: 40px;
+    font-size: 45px;
     font-weight: 300;
     margin: 0;
-    padding: 2em 1em;
+    padding: 1em;
     -moz-text-align-last: center;
     text-align-last: center;
+    text-shadow: 0px 1px 2px rgba(206, 80, 45, 0.5)
+}
+
+.blanket__title-text--top {
+    top: 0px;
+}
+
+.blanket__title-text--bottom {
+    position: absolute;
+    bottom: 0.25em;
+    left: 0px;
+    width: 100%;
 }
 
 @media(max-width: 600px) {
     .blanket__title-text {
-        font-size: 35px;
+        font-size: 48px;
+    }
+}
+
+@media(max-width: 375px) {
+    .blanket__title-text {
+        font-size: 48px;
     }
 }
 
@@ -52,7 +77,8 @@
 }
 
 .blanket__content {
-    background-color: #00253B;
+    background: rgba(136, 215, 190, 1) repeat-y url('../images/blanket-duvet.svg');
+    background-size: 100% auto;
     width: 100%;
     height: 100%;
     overflow: auto;

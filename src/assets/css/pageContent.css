@@ -130,12 +130,13 @@
 
 .peeking-cat {
     width: 100%;
-    height: 10em;
+    height: 5em;
     border: none;
     position: absolute;
     left: 0;
     bottom: 0;
-    background: no-repeat center 20px / contain url('../images/cat-silhouette.svg');
+    background: no-repeat top / contain url('../images/cat-silhouette.svg');
+    tap-highlight-color: rgba(0,0,0,0);
 }
 
 .cat-house {
@@ -145,6 +146,7 @@
 }
 
 .cat-house__cat {
+    tap-highlight-color: rgba(0,0,0,0);
     flex-grow: 1;
     background: no-repeat top center/contain url('../images/cat-mouth-closed.svg');
 }

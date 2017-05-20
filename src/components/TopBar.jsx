@@ -19,9 +19,12 @@ const getCurrentPageName = (state) => {
 
 const TopBar = (props) => {
     return (
-        <div className="top-bar">
-            {props.category && <div className="top-bar__back-button" onClick={props.pageActions.clearCategory}>&lsaquo;</div>}
-            <div className="top-bar__text">{props.currentPageName}</div>
+        <div>
+            <div className="paws"></div>
+            <div className="top-bar">
+                {props.category && <div className="top-bar__back-button" onClick={props.pageActions.clearCategory}>&lsaquo;</div>}
+                <div className="top-bar__text">{props.currentPageName}</div>
+            </div>
         </div>
     );
 }
