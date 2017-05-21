@@ -4,9 +4,39 @@ import React from 'react';
 const VocabTable = ({vocabInfo}) => {
 	if (!vocabInfo) return null;
 
+	const vocabList = vocabInfo.map(item => {
+		return (
+			<div className="vocab-section__item" key={item.phrase}>
+				<div className="vocab-section__phrase">
+					{item.phrase}
+				</div>
+				<div className="vocab-section__pronunciation">
+					{item.pronunciation}
+				</div>
+				<div className="vocab-section__meaning">
+					{item.meaning}
+				</div>
+			</div>
+		);
+	});
+
 	return (
-		<div className="phrase-page__vocab-table">
-			<h3>Vocabulary</h3>
+		<div className="vocab-section">
+			<div className="vocab-section__header">Vocabulary</div>
+			<div className="vocab-section__table">
+				{vocabList}
+			</div>
+		</div>
+	);
+}
+
+const ExtraInfo = ({info}) => {
+	if (!info) return null;
+
+	return (
+		<div className="extra-info">
+			<div className="extra-info__header">Did you know?</div>
+			<div className="extra-info__content">{info}</div>
 		</div>
 	);
 }
@@ -30,7 +60,7 @@ const PhrasePage = (props) => {
 			</div>
 			<div className="phrase-page__pronunciation">{phraseInfo.pronunciation}</div>
 			<div className="phrase-page__meaning">{phraseInfo.meaning}</div>
-			<div className="phrase-page__extra-info"></div>
+			<ExtraInfo info={phraseInfo.extra} />
 			<VocabTable vocabInfo={phraseInfo.vocab} />
 		</div>
 	);

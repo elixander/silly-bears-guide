@@ -27,10 +27,6 @@
     overflow: hidden;
 }
 
-.blanket:not(.blanket-raised) .blanket__floating-title--visible:hover{
-    height: 35vh;
-}
-
 .blanket__floating-title--visible {
     opacity: 1;
     height: 50vh;

@@ -5,7 +5,7 @@ export const FRIENDLY_PHRASES = [
         meaning: 'Hello.',
         audio: null,
     }, {
-        phrase: '你好嗎',
+        phrase: '你好嗎?',
         pronunciation: 'nǐ hǎo mā',
         meaning: 'How are you?',
         audio: null,
@@ -43,13 +43,13 @@ export const HUNGRY_PHRASES = [
         pronunciation: 'chī',
         meaning: 'To eat',
         audio: null,
-        phrases: [
-            {
-                phrase: '吃飯',
-                pronunciation: 'chī fàn',
-                translation: '(to) eat a meal, lit: eat rice',
-            }
-        ]
+        // vocab: [
+        //     {
+        //         phrase: '吃飯',
+        //         pronunciation: 'chī fàn',
+        //         meaning: '(to) eat a meal, lit: eat rice',
+        //     }
+        // ]
     }, {
         phrase:'餐',
         pronunciation: 'cān',
@@ -105,6 +105,103 @@ export const HUNGRY_PHRASES = [
         phrase:'甜點',
         pronunciation: 'tián diǎn',
         meaning: 'dessert/sweets',
+        audio: null,
+    },
+];
+
+export const TIRED_PHRASES = [
+    {
+        phrase: '我好累',
+        pronunciation: 'wǒ hǎo lèi',
+        meaning: 'I\'m so tired',
+        audio: null,
+    },
+    {
+        phrase: '我想睡覺',
+        pronunciation: 'wǒ xiǎng shuì jiào',
+        meaning: 'I want to sleep.',
+        audio: null,
+        extra: 'If you add 午 (wǔ), meaning noon, you can say "I want a nap": wǒ xiǎng shuì wǔ jiào.',
+    },
+    {
+        phrase: '我不想刷牙',
+        pronunciation: 'wǒ bù xiǎng shuā yá',
+        meaning: 'I don\'t want to brush my teeth',
+        audio: null,
+    },
+    {
+        phrase: '沒力氣了',
+        pronunciation: 'méi lì qì le',
+        meaning: 'I have no more energy.',
+        audio: null,
+        // extra: '力氣 means strength, e.g. 力氣'
+    },
+    {
+        phrase: '我一直打呵欠',
+        pronunciation: 'wǒ yì zhí dǎ hē qiàn',
+        meaning: 'I keep yawning',
+        audio: null,
+        extra: 'Yawn can also be "哈欠" (hā qiàn). "哈" is also the character for "ha" as in "hahaha".',
+    },
+];
+
+export const GRUMPY_PHRASES = [
+    {
+        phrase: '別打擾我',
+        pronunciation: 'bié dǎ rǎo wǒ',
+        meaning: 'Don\'t bother me.',
+        audio: null,
+    },
+    {
+        phrase: '走開',
+        pronunciation: 'zǒu kāi',
+        meaning: 'Go away.',
+        audio: null,
+    },
+    {
+        phrase: '我不要',
+        pronunciation: 'wǒ bú yào',
+        meaning: 'I don\'t want (sth/to do sth)',
+        audio: null,
+    },
+    {
+        phrase: '好煩啊',
+        pronunciation: 'hǎo fán nà',
+        meaning: 'So annoying',
+        audio: null,
+    },
+];
+
+export const HOMESICK_PHRASES = [
+    {
+        phrase: '我有一點想家',
+        pronunciation: 'wǒ yǒu yì diǎn xiǎng jiā',
+        meaning: 'I\'m a little homesick',
+        audio: null,
+        extra: 'Here, "xiǎng" is a short way of saying "xiǎng niàn", to miss (sth/sb).',
+        vocab: [
+            {
+                phrase: '一點',
+                pronunciation: 'yì diǎn',
+                meaning: 'a bit, a little. The same characters also happen to mean one o\'clock.',
+            }, 
+            {
+                phrase: '家',
+                pronunciation: 'jiā',
+                meaning: 'house, home, family',
+            }
+        ],
+    },
+    {
+        phrase: '我找不到我的貓',
+        pronunciation: 'wǒ zhǎo bú dào wǒ de māo',
+        meaning: 'I can\'t find my cat',
+        audio: null,
+    },
+    {
+        phrase: '嘟嘟',
+        pronunciation: 'dū dū',
+        meaning: 'Beep',
         audio: null,
     },
 ];
