@@ -24,6 +24,8 @@ const INITIAL_STATE = {
 	questionNumber: 0,
 	chancesRemaining: NUM_QUESTIONS, 
 	checking: false,
+	loading: true,
+	selectedAnswer: null,
 };
 
 class QuizPage extends React.Component {
@@ -37,9 +39,7 @@ class QuizPage extends React.Component {
 			});
 		});
 
-		this.state = Object.assign({}, INITIAL_STATE, {
-			loading: true,
-		});
+		this.state = Object.assign({}, INITIAL_STATE);
 	} 
 
 	render(){
@@ -59,7 +59,7 @@ class QuizPage extends React.Component {
 
 			chances.push(
 				<div className={beeClasses} key={i}>
-					<img className="quiz-page__bee-image" src={bee} />
+					<img className="quiz-page__bee-image" src={bee} alt="bumblebeep" />
 				</div>
 			);
 		} 
@@ -80,12 +80,12 @@ class QuizPage extends React.Component {
 		const questionInfo = this.state.questions[this.state.questionNumber];
 
 		const button = this.state.checking ? 
-			<button className="quiz-page__button" onClick={this.next}>Next</button> : 
-			<button className="quiz-page__button" onClick={this.checkAnswer}>Check</button>;
+			<input type="submit" className="quiz-page__button" onSubmit={this.next} value="Next" /> : 
+			<input type="submit" className="quiz-page__button" onSubmit={this.checkAnswer} value="Check" />;
 
 		const choices = questionInfo.choices.map((choice, ind) => (
 			<div key={this.state.questionNumber + choice}>
-				<input id={ind} type="checkbox"></input>
+				<input id={ind} value={ind} type="radio" name="answer"></input>
 				<label htmlFor={ind}>{choice}</label>
 			</div>
 		));
@@ -96,8 +96,8 @@ class QuizPage extends React.Component {
 				<div className="quiz-page__instructions">
 					Select the option that best matches the phrase above.
 				</div>
-				<form className="quiz-page__choices" name="choices">
-					<div>
+				<form className="quiz-page__choices" name="choices" >
+					<div className="quiz-page__choices-container" onChange={this.onAnswerChange}>
 						{choices}
 					</div>
 					{button}
@@ -123,17 +123,32 @@ class QuizPage extends React.Component {
 		);
 	}
 
-	checkAnswer(){
-		this.setState({checking: true});
+	onAnswerChange(evt){
+		this.setState({selectedAnswer: evt.target.value});
 	}
 
-	next(){
+	checkAnswer(){
+		const questionInfo = this.state.questions[this.state.questionNumber];
+		const chancesLost = this.state.selectedAnswer === questionInfo.correctChoice ? 0 : 1;
+
+		this.setState({
+			checking: true, 
+			chancesRemaining: this.state.chancesRemaining - chancesLost,
+		});
+	}
+
+	next(evt){
 		this.setState({questionNumber: this.state.questionNumber + 1});
 	}
 
 	startOver(){
-		this.setState(INITIAL_STATE, {
-			questions: this.generateQuiz(),
+		this.setState(INITIAL_STATE);
+
+		this.generateQuiz().then((questions) => {
+			this.setState({
+				questions,
+				loading: false,
+			});
 		});
 	}
 
