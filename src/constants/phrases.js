@@ -4,11 +4,13 @@ export const FRIENDLY_PHRASES = [
         pronunciation: 'nǐ hǎo',
         meaning: 'Hello.',
         audio: null,
-    }, {
-        phrase: '你好嗎?',
-        pronunciation: 'nǐ hǎo mā',
-        meaning: 'How are you?',
-        audio: null,
+        vocab: [
+            {
+                phrase: '你好嗎?',
+                pronunciation: 'nǐ hǎo mā',
+                meaning: 'How are you? 嗎(mā) is a question marker, like "ka" in Japanese.',
+            }
+        ]
     }, {
         phrase: '我很好，你呢？',
         pronunciation: 'wǒ hěn hǎo, nǐ nē',
@@ -34,33 +36,67 @@ export const FRIENDLY_PHRASES = [
 
 export const HUNGRY_PHRASES = [
     {
-        phrase: '包子',
-        pronunciation: 'bāo zi',
-        meaning: 'bun',
+        phrase: '包子還是餃子?',
+        pronunciation: 'bāo zi hái shì jiǎo zi',
+        meaning: 'Buns or dumplings?',
         audio: null,
+        vocab: [
+            {
+                phrase: '_ 還是 _',
+                pronunciation: '_ hái shì _',
+                meaning: '_ or _',
+            }, {
+                phrase: '包子',
+                pronunciation: 'bāo zi',
+                meaning: 'bun, like a pork bun or red bean bun',
+            }, {
+                phrase: '餃子',
+                pronunciation: 'jiǎo zi',
+                meaning: 'dumpling. It may be steamed, boiled, pan-fried, etc.',
+            }, {
+                phrase: '水餃',
+                pronunciation: 'shuí jiǎo',
+                meaning: 'dumpling, specifically one boiled in water. (水 means water)',
+            },
+        ],
     }, {
-        phrase:'吃',
-        pronunciation: 'chī',
-        meaning: 'To eat',
+        phrase:'吃飯',
+        pronunciation: 'chī fàn',
+        meaning: '(to) eat a meal',
         audio: null,
-        // vocab: [
-        //     {
-        //         phrase: '吃飯',
-        //         pronunciation: 'chī fàn',
-        //         meaning: '(to) eat a meal, lit: eat rice',
-        //     }
-        // ]
+        vocab: [
+            {
+                phrase: '飯',
+                pronunciation: 'fàn',
+                meaning: 'a meal, rice ',
+            },
+        ],
     }, {
-        phrase:'餐',
+        phrase:'早餐',
         pronunciation: 'cān',
         meaning: 'meal',
         audio: null,
-        information: '早餐 中餐',
+        extra: 'You can add 早(zǎo, early), 中(zhōng, middle/center) or 晚(wǎn, late) before 餐 to say "breakfast", "lunch", and "dinner," respectively.',
     }, {
-        phrase:'麵 涼麵 乾麵',
+        phrase:'麵',
         pronunciation: 'miàn',
         meaning: 'noodles',
         audio: null,
+        vocab: [
+            {
+                phrase: '涼麵', 
+                pronunciation: 'liáng miàn',
+                meaning: 'cold noodles',
+            }, {
+                phrase: '乾麵', 
+                pronunciation: 'gān miàn',
+                meaning: 'dry noodles',
+            }, {
+                phrase: '蛋麵', 
+                pronunciation: 'dàn miàn',
+                meaning: 'egg noodles',
+            },
+        ],
     }, {
         phrase:'飯',
         pronunciation: 'fàn',
@@ -115,33 +151,45 @@ export const TIRED_PHRASES = [
         pronunciation: 'wǒ hǎo lèi',
         meaning: 'I\'m so tired',
         audio: null,
-    },
-    {
+    }, {
         phrase: '我想睡覺',
         pronunciation: 'wǒ xiǎng shuì jiào',
         meaning: 'I want to sleep.',
         audio: null,
         extra: 'If you add 午 (wǔ), meaning noon, you can say "I want a nap": wǒ xiǎng shuì wǔ jiào.',
-    },
-    {
+    }, {
         phrase: '我不想刷牙',
         pronunciation: 'wǒ bù xiǎng shuā yá',
         meaning: 'I don\'t want to brush my teeth',
         audio: null,
-    },
-    {
+    }, {
         phrase: '沒力氣了',
         pronunciation: 'méi lì qì le',
-        meaning: 'I have no more energy.',
+        meaning: 'No more energy.',
         audio: null,
         // extra: '力氣 means strength, e.g. 力氣'
-    },
-    {
+    }, {
         phrase: '我一直打呵欠',
         pronunciation: 'wǒ yì zhí dǎ hē qiàn',
         meaning: 'I keep yawning',
         audio: null,
         extra: 'Yawn can also be "哈欠" (hā qiàn). "哈" is also the character for "ha" as in "hahaha".',
+    }, {
+        phrase: '我需要咖啡!',
+        pronunciation: 'wǒ xū yào kā fē',
+        meaning: 'I need coffee!',
+        audio: null,
+        vocab: [
+            {
+                phrase: '美式咖啡',
+                pronunciation: 'měi shì kā fē',
+                meaning: 'Americano, lit: American-style coffee',
+            }, {
+                phrase: '一杯 _',
+                pronunciation: 'yì bēi _',
+                meaning: 'One cup of _',
+            },
+        ],
     },
 ];
 
@@ -151,25 +199,35 @@ export const GRUMPY_PHRASES = [
         pronunciation: 'bié dǎ rǎo wǒ',
         meaning: 'Don\'t bother me.',
         audio: null,
-    },
-    {
+    }, {
         phrase: '走開',
         pronunciation: 'zǒu kāi',
         meaning: 'Go away.',
         audio: null,
-    },
-    {
+        vocab: [
+            {
+                phrase: '走',
+                pronunciation: 'zǒu',
+                meaning: 'to walk. 走吧',
+            },{
+                phrase: '開',
+                pronunciation: 'zǒu',
+                meaning: 'open (adj or v), e.g. 開門, to open a door. It can also mean "away" in some senses.',
+            },        
+        ],
+    }, {
         phrase: '我不要',
         pronunciation: 'wǒ bú yào',
         meaning: 'I don\'t want (sth/to do sth)',
         audio: null,
-    },
-    {
+    }, {
         phrase: '好煩啊',
         pronunciation: 'hǎo fán nà',
         meaning: 'So annoying',
         audio: null,
-    },
+    }, {
+
+    }
 ];
 
 export const HOMESICK_PHRASES = [
@@ -178,30 +236,46 @@ export const HOMESICK_PHRASES = [
         pronunciation: 'wǒ yǒu yì diǎn xiǎng jiā',
         meaning: 'I\'m a little homesick',
         audio: null,
-        extra: 'Here, "xiǎng" is a short way of saying "xiǎng niàn", to miss (sth/sb).',
         vocab: [
             {
                 phrase: '一點',
                 pronunciation: 'yì diǎn',
                 meaning: 'a bit, a little. The same characters also happen to mean one o\'clock.',
-            }, 
-            {
+            }, {
                 phrase: '家',
                 pronunciation: 'jiā',
                 meaning: 'house, home, family',
-            }
+            }, {
+                phrase: '想', 
+                pronunciation: 'xiǎng', 
+                meaning: 'to think, think of, miss, want. 想念(xiǎng niàn) is more specifically to miss (sth/sb)',
+            },
         ],
-    },
-    {
+    }, {
         phrase: '我找不到我的貓',
         pronunciation: 'wǒ zhǎo bú dào wǒ de māo',
         meaning: 'I can\'t find my cat',
         audio: null,
-    },
-    {
+    }, {
         phrase: '嘟嘟',
         pronunciation: 'dū dū',
         meaning: 'Beep',
         audio: null,
+    }, {
+        phrase: '舊金山附近',
+        pronunciation: 'jiù jīn shān fù jìn',
+        meaning: 'Near San Francisco',
+        audio: null,
+        vocab: [
+            {
+                phrase: '舊金山',
+                pronunciation: 'jiù jīn shān',
+                meaning: 'San Francisco lit: old gold mountain. So named for the gold rush that drew many in hopes of a better life and fortune.',
+            }, {
+                phrase: '附近',
+                pronunciation: 'fù jìn',
+                meaning: 'Near. 附近的_(fù jìn de_) means "nearby _", as in "nearby schools"',
+            },
+        ],
     },
 ];

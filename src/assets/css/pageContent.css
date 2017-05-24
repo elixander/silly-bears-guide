@@ -1,4 +1,7 @@
 .page-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .category-card {
@@ -6,6 +9,7 @@
     background: rgba(43, 110, 136, 0.5);
     padding: 1em 0;
     border-bottom: 1px solid rgba(43, 110, 136, 0.5);
+    flex-shrink: 0;
 }
 
 .category-card:hover, .phrase-card:hover {
@@ -19,6 +23,7 @@
     border-bottom: 1px solid rgba(43, 110, 136, 0.8);
     display: flex;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .phrase-card__info {
@@ -76,6 +81,8 @@
     pointer-events: none;
     transition: width 150ms ease-in-out, height 150ms ease-in-out, top 150ms ease-in-out, left 150ms ease-in-out, 
         opacity 150ms ease-in;
+    display: flex;
+    flex-direction: column;
 }
 
 .expanded-view--open {
@@ -110,9 +117,10 @@
 
 .phrase-page {
     text-align: left;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 80%;
+    padding-left: 10%;
+    padding-right: 10%;
+    width: 80%;
+    overflow: auto;
 }
 
 .phrase-page__main-phrase {
@@ -194,14 +202,17 @@
 /* ------------ Cat House -------------- */
 
 .peeking-cat {
-    width: 100%;
+    width: 15em;
     height: 5em;
     border: none;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    background: no-repeat top / contain url('../images/cat-silhouette.svg');
+    padding: 0;
+    background: no-repeat bottom / contain url('../images/cat-silhouette.svg');
     tap-highlight-color: rgba(0,0,0,0);
+}
+
+.peeking-cat-container {
+    margin-top: auto;
+    width: 100%;
 }
 
 .cat-house {

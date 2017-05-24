@@ -70,9 +70,11 @@ class PageContent extends React.Component {
         });
 
         const cat = this.props.category === CATEGORIES.HOMESICK ? (
-                <button className="peeking-cat" onClick={() => {
-                    this.props.pageActions.openExpandedView(viewTypes.CAT);
-                }}/>
+                <div className="peeking-cat-container">
+                    <button className="peeking-cat" onClick={() => {
+                        this.props.pageActions.openExpandedView(viewTypes.CAT);
+                    }}/>
+                </div>
             ) : null;
 
         // TODO: this logic should not live here...
