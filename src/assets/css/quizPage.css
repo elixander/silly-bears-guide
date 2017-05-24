@@ -1,0 +1,66 @@
+.quiz-page {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.quiz-page__question {
+    padding: 10px;
+    margin-bottom: 1em;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 3px;
+}
+
+.quiz-page__instructions {
+	font-size: 18px;
+	font-style: italic;
+	color: rgba(240, 240, 250, 0.8);
+}
+
+.quiz-page__chances {
+	margin-bottom: 1em;
+	display: grid;
+	grid-template-columns: 1fr repeat(5, 2rem) 1fr;
+	grid-column-gap: 8px;
+	height: 2rem;
+}
+
+.quiz-page__bee {
+	background: no-repeat center/contain url('../images/shadow.svg');
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+}
+
+.quiz-page__bee:first-child {
+	grid-column-start: 2;
+}
+
+.quiz-page__bee-image {
+	width: 100%;
+	height: 100%;
+	/*margin-top: -1.2em;*/
+	animation-name: beeHover; 
+	animation-duration: 600ms;
+	animation-iteration-count: infinite; 
+	animation-direction: alternate;
+	animation-timing-function: ease-in-out;
+	position: relative;
+}
+
+.quiz-page__bee:nth-child(2n) .quiz-page__bee-image {
+	animation-delay: -100ms;
+}
+
+.quiz-page__bee:nth-child(3n) .quiz-page__bee-image {
+	animation-delay: -200ms;
+}
+
+@keyframes beeHover {
+	0% {
+		bottom: 1em;
+	}
+	100% {
+		bottom: 0.5em;
+	}
+}

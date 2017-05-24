@@ -225,9 +225,7 @@ export const GRUMPY_PHRASES = [
         pronunciation: 'hǎo fán nà',
         meaning: 'So annoying',
         audio: null,
-    }, {
-
-    }
+    },
 ];
 
 export const HOMESICK_PHRASES = [

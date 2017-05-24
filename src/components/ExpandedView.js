@@ -10,6 +10,7 @@ const ExpandedView = (props) => {
 	return (
 		<div className={classes}>
 			<div className="expanded-view__top-bar">
+				{props.title && <span className="expanded-view__top-bar-title">{props.title}</span>}
 				<button className="expanded-view__close-button" onClick={props.onClose} />
 			</div>
 			{props.children}

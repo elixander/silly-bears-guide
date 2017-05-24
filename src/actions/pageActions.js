@@ -15,9 +15,12 @@ export const clearCategory = () => ({
 	payload: null,
 });
 
-export const openExpandedView = (type) => ({
+export const openExpandedView = (type, title=null) => ({
 	type: types.OPEN_EXPANDED_VIEW,
-	payload: type,
+	payload: {
+		type,
+		title, 
+	},
 });
 
 export const closeExpandedView = () => ({

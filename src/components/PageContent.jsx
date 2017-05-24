@@ -9,6 +9,7 @@ import * as viewTypes from '../constants/viewTypes';
 import CatHouse from './CatHouse';
 import ExpandedView from './ExpandedView';
 import PhrasePage from './PhrasePage';
+import QuizPage from './QuizPage';
 
 import '../assets/css/pageContent.css';
 import * as audioFiles from '../assets/audio';
@@ -48,10 +49,6 @@ const PhraseCard = (props) => {
 class PageContent extends React.Component {
     constructor(props){
         super(props);
-        // this.state = {
-        //     audio: null,
-        // };
-
         this.audio = new Audio();
     }
 
@@ -77,7 +74,16 @@ class PageContent extends React.Component {
                 </div>
             ) : null;
 
-        // TODO: this logic should not live here...
+        const quizMe = !!this.props.category ? (
+            <div className="" onClick={() => {
+                this.props.pageActions.openExpandedView(viewTypes.QUIZ, 
+                    `${CATEGORY_INFO[this.props.category].name}'s Quiz`);
+            }}>
+                I got dis. Quiz me!</div>
+        ) : null;
+
+        // TODO: this logic should not live here... The expanded view should handle type and title itself.
+        
         let expandedView = null;
         switch(this.props.expandedView){
             case viewTypes.PHRASE:
@@ -87,23 +93,29 @@ class PageContent extends React.Component {
             case viewTypes.CAT:
                 expandedView = <CatHouse />
                 break; 
+            case viewTypes.QUIZ: 
+                expandedView = <QuizPage />
+                break;
             default:
                 break;
         }
 
         return (
             <div className="page-content">
+                {quizMe}
                 {cards}
                 {cat}
                 <ExpandedView open={!!this.props.expandedView} 
-                        onClose={this.props.pageActions.closeExpandedView}>
+                        onClose={this.props.pageActions.closeExpandedView} 
+                        title={this.props.expandedViewTitle}>
                     {expandedView}
                 </ExpandedView>
             </div>);
     }
 
     playAudio(file){
-        // this.setState({audio: file});
+        // TODO: audio should be its own component, under a top-level component,
+        // and just use actions to set the src and play.
         this.audio.src = audioFiles[file];
         this.audio.play();
     }
@@ -121,6 +133,7 @@ const mapStateToProps = state => ({
     category: state.page.category,
     phrase: state.page.phrase,
     expandedView: state.page.expandedView,
+    expandedViewTitle: state.page.expandedViewTitle,
     cards: state.launch.launched ? getCards(state.page.category) : [],
 });
 

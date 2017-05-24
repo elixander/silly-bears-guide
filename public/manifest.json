@@ -3,17 +3,17 @@
   "name": "Silly Bear's Essential Guide to Chinese",
   "icons": [
     {
-      "src": "launcher-icon-2x.png",
+      "src": "favico/favicon-96x96.png",
       "sizes": "96x96",
       "type": "image/png"
     },
     {
-      "src": "launcher-icon-3x.png",
+      "src": "favico/apple-touch-icon-144x144.png",
       "sizes": "144x144",
       "type": "image/png"
     },
     {
-      "src": "launcher-icon-4x.png",
+      "src": "favico/favicon-196x196.png",
       "sizes": "192x192",
       "type": "image/png"
     }

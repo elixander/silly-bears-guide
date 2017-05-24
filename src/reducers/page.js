@@ -5,6 +5,7 @@ const INITIAL_STATE = {
     category: null,
     phrase: null,
     expandedView: null,
+    expandedViewTitle: null,
 };
 
 export default (state = INITIAL_STATE, action) => {
@@ -20,10 +21,11 @@ export default (state = INITIAL_STATE, action) => {
             });
         case types.OPEN_EXPANDED_VIEW: 
             return Object.assign({}, state, {
-                expandedView: action.payload,
+                expandedView: action.payload.type,
+                expandedViewTitle: action.payload.title,
             });
         case types.CLOSE_EXPANDED_VIEW:
-            return Object.assign({}, state, {expandedView: null});
+            return Object.assign({}, state, {expandedView: null, expandedViewTitle: null});
         default:
             return state;
     }
