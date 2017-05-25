@@ -75,7 +75,7 @@ class PageContent extends React.Component {
             ) : null;
 
         const quizMe = !!this.props.category ? (
-            <div className="" onClick={() => {
+            <div className="quiz-me" onClick={() => {
                 this.props.pageActions.openExpandedView(viewTypes.QUIZ, 
                     `${CATEGORY_INFO[this.props.category].name}'s Quiz`);
             }}>

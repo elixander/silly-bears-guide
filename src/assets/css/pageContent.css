@@ -44,6 +44,15 @@
     color: rgba(240, 240, 250, 0.8);
 }
 
+.quiz-me {
+    border: 1px solid rgb(255, 255, 255);
+    margin: 20px;
+    border-radius: 4px;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+}
+
 /* ------------ Audio -------------- */
 
 .audio {

@@ -13,11 +13,12 @@ const NUM_QUESTIONS = 5;
 const NUM_CHOICES = 3;
 
 const REACTIONS = {
+	0: ['Wah wah...', 'Too bad... :(', 'Don\'t give up!', 'Better luck next time!'],
 	1: ['Too bad... :(', 'Don\'t give up!', 'Better luck next time!'],
 	2: ['Baby steps!', 'Making progress'],
 	3: ['Not bad!', 'Solid work'],
 	4: ['Nice!', 'Impressive!', 'Great job!'],
-	5: ['Splendid!', 'Amazing!', 'Woohoo!', '🏆', 'Sweet potatoes'],
+	5: ['Splendid!', 'Amazing!', 'Woohoo!', '🏆', 'Sweet potato 😎'],
 };
 
 const INITIAL_STATE = {
@@ -80,15 +81,24 @@ class QuizPage extends React.Component {
 		const questionInfo = this.state.questions[this.state.questionNumber];
 
 		const button = this.state.checking ? 
-			<input type="submit" className="quiz-page__button" onSubmit={this.next} value="Next" /> : 
-			<input type="submit" className="quiz-page__button" onSubmit={this.checkAnswer} value="Check" />;
+			<input type="button" className="quiz-page__button" onClick={evt => this.next(evt)} value="Next" /> : 
+			<input type="button" className="quiz-page__button" onClick={evt => this.checkAnswer(evt)} value="Check" />;
 
-		const choices = questionInfo.choices.map((choice, ind) => (
-			<div key={this.state.questionNumber + choice}>
-				<input id={ind} value={ind} type="radio" name="answer"></input>
-				<label htmlFor={ind}>{choice}</label>
+		const choices = questionInfo.choices.map((choice, ind) => {
+			const choiceClasses = classNames('quiz-page__single-choice', {
+				'quiz-page__single-choice--selected': ind === parseInt(this.state.selectedAnswer, 10),
+				'quiz-page__single-choice--clickable': !this.state.checking, 
+				'quiz-page__single-choice--wrong': this.state.checking && ind !== questionInfo.correctChoice, 
+				'quiz-page__single-choice--right': this.state.checking && ind === questionInfo.correctChoice, 
+			});
+
+			return <div className={choiceClasses} key={this.state.questionNumber + choice}>
+				<input className="quiz-page__choice-input" disabled={this.state.checking}
+						id={ind} value={ind} 
+						type="radio" name="answer"></input>
+				<label className="quiz-page__choice-label" htmlFor={ind}>{choice}</label>
 			</div>
-		));
+		});
 
 		return (
 			<div className="quiz-page__content">
@@ -97,7 +107,7 @@ class QuizPage extends React.Component {
 					Select the option that best matches the phrase above.
 				</div>
 				<form className="quiz-page__choices" name="choices" >
-					<div className="quiz-page__choices-container" onChange={this.onAnswerChange}>
+					<div className="quiz-page__choices-container" onChange={(evt) => this.onAnswerChange(evt)}>
 						{choices}
 					</div>
 					{button}
@@ -107,8 +117,8 @@ class QuizPage extends React.Component {
 	}
 
 	renderResult(){
-		const reactions = REACTIONS[`${this.state.chancesRemaining}`];
-		const reaction = reactions[Math.floor(Math.random() * REACTIONS.length)];
+		const reactions = REACTIONS[this.state.chancesRemaining];
+		const reaction = reactions[Math.floor(Math.random() * reactions.length)];
 
 		return (
 			<div className="quiz-page__content">
@@ -118,7 +128,7 @@ class QuizPage extends React.Component {
 				<div className="quiz-page__result">
 					You got {this.state.chancesRemaining} of {NUM_QUESTIONS} correct{this.state.chancesRemaining > NUM_QUESTIONS - 2 ? '!' : '.'}
 				</div>
-				<button className="quiz-page__button" onClick={this.startOver}>Try Again</button>
+				<button className="quiz-page__button" onClick={() => this.startOver()}>Try Again</button>
 			</div>
 		);
 	}
@@ -127,9 +137,11 @@ class QuizPage extends React.Component {
 		this.setState({selectedAnswer: evt.target.value});
 	}
 
-	checkAnswer(){
+	checkAnswer(evt){
+		if (this.state.selectedAnswer === null) return;
+
 		const questionInfo = this.state.questions[this.state.questionNumber];
-		const chancesLost = this.state.selectedAnswer === questionInfo.correctChoice ? 0 : 1;
+		const chancesLost = parseInt(this.state.selectedAnswer, 10) === questionInfo.correctChoice ? 0 : 1;
 
 		this.setState({
 			checking: true, 
@@ -138,7 +150,11 @@ class QuizPage extends React.Component {
 	}
 
 	next(evt){
-		this.setState({questionNumber: this.state.questionNumber + 1});
+		this.setState({
+			questionNumber: this.state.questionNumber + 1, 
+			checking: false,
+			selectedAnswer: null,
+		});
 	}
 
 	startOver(){
