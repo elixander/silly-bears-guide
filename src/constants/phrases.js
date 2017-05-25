@@ -31,7 +31,44 @@ export const FRIENDLY_PHRASES = [
         pronunciation: 'bú kè qì',
         meaning: 'You\'re welcome. lit: no politeness (necessary)',
         audio: null,
-    },
+    }, {
+        phrase: '你的嗜好是什麼?',
+        pronunciation: 'nǐ de shì hào shì shén me',
+        meaning: 'What is your hobby?',
+        audio: null,
+        vocab: [
+            {
+                phrase: '什麼',
+                pronunciation: 'shén me',
+                meaning: 'what',
+            }, {
+                phrase: '嗜好',
+                pronunciation: 'shì hào',
+                meaning: 'hobby',
+            },
+        ]
+    }, {
+        phrase: '我喜歡攀岩?',
+        pronunciation: 'wǒ xǐ huān pān yán',
+        meaning: 'I like rock climbing',
+        audio: null,
+        vocab: [
+            {
+                phrase: '喜歡',
+                pronunciation: 'xǐ huān',
+                meaning: 'to like',
+            }, {
+                phrase: '攀岩',
+                pronunciation: 'pān yán',
+                meaning: 'rock climbing',
+            }, {
+                phrase: '室內',
+                pronunciation: 'shì nèi',
+                meaning: 'indoor',
+            }
+        ],
+    }, 
+
 ];
 
 export const HUNGRY_PHRASES = [
@@ -98,9 +135,9 @@ export const HUNGRY_PHRASES = [
             },
         ],
     }, {
-        phrase:'飯',
-        pronunciation: 'fàn',
-        meaning: 'rice',
+        phrase:'珍珠奶茶 ',
+        pronunciation: 'zhēn zhū nǎi chá',
+        meaning: 'bubble tea / boba (lit: pearl milk tea)',
         audio: null,
     }, {
         phrase:'牛肉 ',
@@ -151,6 +188,13 @@ export const TIRED_PHRASES = [
         pronunciation: 'wǒ hǎo lèi',
         meaning: 'I\'m so tired',
         audio: null,
+        vocab: [
+            {
+                phrase: '累死了',
+                pronunciation: 'lèi sǐ le',
+                meaning: 'exhausted, worn out (lit: tired to death)',
+            },
+        ]
     }, {
         phrase: '我想睡覺',
         pronunciation: 'wǒ xiǎng shuì jiào',
@@ -216,6 +260,30 @@ export const GRUMPY_PHRASES = [
             },        
         ],
     }, {
+        phrase: '工作真沒趣',
+        pronunciation: 'gōng zuò zhēn méi qù',
+        meaning: 'Work is so boring',
+        audio: null,
+        vocab: [
+            {
+                phrase: '工作', 
+                pronunciation: 'gōng zuò',
+                meaning: 'work (n or v)',
+            }, {
+                phrase: '真', 
+                pronunciation: 'zhēn',
+                meaning: 'true, quite, very',
+            }, {
+                phrase: '沒趣', 
+                pronunciation: 'méi qù',
+                meaning: 'boring (lit: without interest)',
+            }, {
+                phrase: '有趣', 
+                pronunciation: 'yǒu qù',
+                meaning: 'interesting, fun (lit: having interest)',
+            }
+        ],
+    }, {
         phrase: '我不要',
         pronunciation: 'wǒ bú yào',
         meaning: 'I don\'t want (sth/to do sth)',
@@ -225,7 +293,7 @@ export const GRUMPY_PHRASES = [
         pronunciation: 'hǎo fán nà',
         meaning: 'So annoying',
         audio: null,
-    },
+    }, 
 ];
 
 export const HOMESICK_PHRASES = [
@@ -275,5 +343,46 @@ export const HOMESICK_PHRASES = [
                 meaning: 'Near. 附近的_(fù jìn de_) means "nearby _", as in "nearby schools"',
             },
         ],
-    },
+    }, {
+        phrase: '大熊愛小貓',
+        pronunciation: 'dà xióng ài xiǎo māo',
+        meaning: 'Big bear loves little cat',
+        audio: null,
+        vocab: [
+            {
+                phrase: '熊',
+                pronunciation: 'xióng',
+                meaning: 'bear',
+            },  {
+                phrase: '貓',
+                pronunciation: 'māo',
+                meaning: 'cat',
+            },   {
+                phrase: '貓熊',
+                pronunciation: 'māo xióng',
+                meaning: 'panda. There is disagreement about the order of the words, so "xióng māo" also means panda.',
+            }, {
+                phrase: '大小',
+                pronunciation: 'dà xiǎo',
+                meaning: 'size (lit: big little)',
+            },
+        ],
+    }, {
+        phrase: '蜜蜂喝醉了',
+        pronunciation: 'mì fēng hē zùi le',
+        meaning: 'The bees are drunk',
+        audio: null,
+        extra: '"Mì fēng" is commonly used to refer to bees in general, though "mì" is specifically "honey".',
+        vocab: [
+            {
+                phrase: '熊蜂', 
+                pronunciation: 'xióng fēng',
+                meaning: 'bumblebee; what a bee becomes when drunk',
+            }, {
+                phrase: '喝醉', 
+                pronunciation: 'hē zùi',
+                meaning: 'to become drunk',
+            }
+        ],
+    }, 
 ];

@@ -112,6 +112,9 @@ class QuizPage extends React.Component {
 					</div>
 					{button}
 				</form>
+				<div className="quiz-page__progress-indicator">
+					{`${this.state.questionNumber + 1} / ${NUM_QUESTIONS}`}
+				</div>
 			</div>
 		);
 	}
@@ -169,9 +172,10 @@ class QuizPage extends React.Component {
 	}
 
 	generateQuiz(){
-		// return Promise.resolve([]);
 		return new Promise((resolve, reject) => {
 			const phrases = PHRASES[this.props.category];
+			if (phrases.length < NUM_QUESTIONS) reject();
+
 			const chosenPhrases = sampleSize(phrases, NUM_QUESTIONS);
 
 			const questions = chosenPhrases.map(phrase => {

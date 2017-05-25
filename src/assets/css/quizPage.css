@@ -154,3 +154,8 @@
 	margin: 10px 0;
 	font-size: 1.5em;
 }
+
+.quiz-page__progress-indicator {
+	margin-top: 2em;
+	font-size: 14px;
+}
