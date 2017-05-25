@@ -1,10 +1,11 @@
 {
-  "main.css": "static/css/main.c9d96855.css",
-  "main.css.map": "static/css/main.c9d96855.css.map",
-  "main.js": "static/js/main.a7367326.js",
-  "main.js.map": "static/js/main.a7367326.js.map",
+  "main.css": "static/css/main.658eaa1d.css",
+  "main.css.map": "static/css/main.658eaa1d.css.map",
+  "main.js": "static/js/main.8dd74a6c.js",
+  "main.js.map": "static/js/main.8dd74a6c.js.map",
   "static/media/bear-face.svg": "static/media/bear-face.ea59bb92.svg",
   "static/media/bear-paws.svg": "static/media/bear-paws.1a964575.svg",
+  "static/media/bee.svg": "static/media/bee.5d4bedc2.svg",
   "static/media/blanket-duvet.svg": "static/media/blanket-duvet.2a773446.svg",
   "static/media/blanket-top.svg": "static/media/blanket-top.61cb428d.svg",
   "static/media/cat-mouth-closed.svg": "static/media/cat-mouth-closed.fb6514a1.svg",
@@ -12,11 +13,14 @@
   "static/media/cat-mouth-open.svg": "static/media/cat-mouth-open.14f28592.svg",
   "static/media/cat-mouth-relaxed.svg": "static/media/cat-mouth-relaxed.5b93f1e1.svg",
   "static/media/cat-silhouette.svg": "static/media/cat-silhouette.68cb5761.svg",
+  "static/media/checkmark.svg": "static/media/checkmark.9212fedf.svg",
   "static/media/close_button.svg": "static/media/close_button.828ad82b.svg",
   "static/media/down.svg": "static/media/down.d01c5913.svg",
   "static/media/imverywellandyou.m4a": "static/media/imverywellandyou.100f4646.m4a",
+  "static/media/shadow.svg": "static/media/shadow.915eafb0.svg",
   "static/media/speaker_icon.svg": "static/media/speaker_icon.a2bceee5.svg",
   "static/media/speech-bubble-center.svg": "static/media/speech-bubble-center.f9ff0db1.svg",
   "static/media/speech-bubble-left.svg": "static/media/speech-bubble-left.d13635fd.svg",
-  "static/media/speech-bubble-right.svg": "static/media/speech-bubble-right.b889ed76.svg"
+  "static/media/speech-bubble-right.svg": "static/media/speech-bubble-right.b889ed76.svg",
+  "static/media/x.svg": "static/media/x.e1b88790.svg"
 }
